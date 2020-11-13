@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	
+	let amx = 999, dl = 0;
+
+	function numberReverseCompare(n) {
+		n = n + "";
+		if (n === n.split("").reverse().join("")) return true;
+		else return false;
+	}
+
+	for (let i = amx; i >= 100; i--) {
+		//for (let j = amx; j >= 100; j--) {
+			dl=i*i;
+			if (numberReverseCompare(dl)) console.log(dl);
+		//}
+	}
+
+</script>
+</body>
+</html>
