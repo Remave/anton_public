@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		.grd {
+			display: grid;
+			grid-template-columns: repeat(3, 36px);
+			grid-template-rows: repeat(3, 36px);
+		}
+
+		.dv {
+			width: 32px;
+			height: 32px;
+			background-color: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="grd">
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+		<div class="dv"></div>
+	</div>
+	<p>steps:</p>
+
+	<script type="text/javascript">
+		const but = document.getElementsByClassName('dv');
+		const p = document.getElementsByTagName('p')[0];
+
+		function rand3() {
+			return Math.floor(Math.random()*3);
+		}
+
+		function setColor(but, fld) {
+			switch (fld) 
+			{
+				case 0:
+				but.style = 'background-color: red;';
+				break;
+				case 1:
+				but.style = 'background-color: green;';
+				break;
+				case 2:
+				but.style = 'background-color: blue;';
+				break;
+			}
+		}
+
+		let fld = [
+			rand3(),rand3(),rand3(),
+			rand3(),rand3(),rand3(),
+			rand3(),rand3(),rand3()
+		];
+		let steps = 0;
+		let vectory = 0;
+
+		for (let i = 0; i < but.length; i++) {
+			setColor(but[i], fld[i]);
+			but[i].onclick = () => {
+				fld[i] = (fld[i]+1)%3;
+				setColor(but[i], fld[i]);
+				p.innerText = 'steps: '+(++steps);
+				for (let i = 0; i < fld.length; i++) if ()
+			}
+		}
+	</script>
+</body>
+</html>
