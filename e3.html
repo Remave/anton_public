@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n = 600851475143;
+
+		function npd(n) {
+			var res = n % 2 ? 1 : 2
+
+			while (!(n % 2)) n /= 2;
+
+			for (var q=3; q*q<n; q+=2) {
+				for (; !(n%q); n/=q) 
+					res = q
+			}
+
+			return res > n ? res : n
+		}
+
+		document.write('Наибольший простой делитель числа 600851475143 = '+npd(n))
+	</script>
+</body>
+</html>
