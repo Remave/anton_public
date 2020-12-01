@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+			body {
+			height: 300px;
+		}
+		</style>
+		<style>
+			#parent {
+			text-align: center;
+		}
+		#field {
+			display: inline-block;
+		}		
+		#field td {
+			padding: 20px;
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		.active {
+			background: red;
+		}
+		</style>
+	</head>
+	<body>
+		<div>
+			<table id="field"></table>
+		</div>
+		
+		<script>
+		function start(size) {
+			activate(build(field, prepare(size)), size);
+		}
+
+		let field = document.querySelector('#field');
+
+		//Начало 2x2 клетки
+		start(2);
+		
+		//Построение поля 
+		function build(field, arr) {
+			field.innerHTML = '';
+			let cells = [];			
+			for (let sub of arr) {
+				let tr = document.createElement('tr');				
+				for (let num of sub) {
+					let td = document.createElement('td');
+					td.innerHTML = num;
+					tr.appendChild(td);
+					
+					cells.push(td);
+				}				
+				field.appendChild(tr);
+			}			
+			return cells;
+		}
+		
+		//Активация клетки
+		function activate(cells, size) {
+			let counter = 1;			
+			for (let cell of cells) {
+				cell.addEventListener('click', function() {
+					//Если совпало то Активэйт
+					if (this.innerHTML == counter) {
+						this.classList.add('active');
+						//Если закончили то увеличиваем поле				
+						if (counter == size * size) {
+							start(++size);
+						}
+						//Увиличивает текущее значение
+						counter++;
+					}
+				});
+			}
+		}
+		
+		//Приготовить массив для игрового поля
+		function prepare(size) {
+			let arr = [];
+			arr = range(size * size);
+			arr = shuffle(arr);
+			arr = chunk(arr, size);
+			return arr;
+		}
+		
+		//Заполнить массив
+		function range(count) {
+			let arr = [];
+			for (let i = 1; i <= count; i++) {
+				arr.push(i);
+			}
+			return arr;
+		}
+		
+		//Премешивание
+		function shuffle(arr) {
+			let result = [];
+			let length = arr.length;
+			for (let i = 0; i < length; i++) {
+				let random = getRandomInt(0, arr.length - 1);
+				let elem = arr.splice(random, 1)[0];
+				result.push(elem);
+			}
+			return result;
+		}
+
+		//Развивает масив на равные части
+		function chunk(arr, n) {
+			let result = [];
+			let count = Math.ceil(arr.length / n);
+			for (let i = 0; i < count; i++) {
+				let elems = arr.splice(0, n);
+				result.push(elems);
+			}
+			return result;
+		}
+		
+		//РАНДОМ
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+		</script>
+</body>
+</html>
