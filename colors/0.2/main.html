@@ -38,7 +38,7 @@
 		<div class="dv"></div>
 		<div class="dv"></div>
 	</div>
-	<p>steps:</p>
+	<p>steps: 0</p>
 
 	<script type="text/javascript">
 		const st = document.getElementById('but');
@@ -61,6 +61,8 @@
 					p.innerText = 'steps: '+(++steps);
 				}
 			}
+			steps = 0;
+			p.innerText = 'steps: 0';
 		}
 
 		function buldField(fld) {
