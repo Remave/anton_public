@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p><input type="number" id="in1" placeholder="Введите m"></p>
+    <p><input type="number" id="in2" placeholder="Введите n"></p>
+    <p><Button onclick="doo()">Сравнить</Button></p>
+    <p id="text">0</p>
+    <script>
+        function doo() {
+            let m = document.getElementById('in1').value,
+                n = document.getElementById('in2').value,
+                p = document.getElementById('text')
+
+            if(m < 0 || n < 0) {
+                alert('m и n не могут быть меньше нуля')
+            }
+            if (m == n) {
+                p.textContent = Number(m == n)
+            } else {
+                p.textContent = Number(m == n)
+            }
+        }
+
+    </script>
+</body>
+</html>
