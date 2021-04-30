@@ -1,0 +1,25 @@
+#Options +Indexes
+#Options +FollowSymlinks
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^compfix [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+#RewriteRule ^user/([a-zA-Z0-9_-.]+)$ user.php?uid=$1 [L]
+# RewriteRule ^user/([a-zA-Z0-9]+)$ /user.php?uid=$1 [R=301,L]
+
+#RedirectMatch 404 ^([a-zA-Z0-9]+).php$
+
+#401 Авторизация не выполнена
+ErrorDocument 401 http://compfix/401
+#403 Доступ запрещен
+ErrorDocument 403 http://compfix/403
+#404 Страница не найдена
+ErrorDocument 404 http://compfix/404
+#500 Внутренняя ошибка сервера
+ErrorDocument 500 http://compfix/500

@@ -1,0 +1,188 @@
+
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans|Montserrat&display=swap');*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	font-family: Segoe UI;
+	font-size: 16px;
+	height: 100%;
+	/*max-height: 100%;*/
+}
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+#mnreg {
+	/*position: absolute;*/
+	
+	margin: auto;
+	width: 296px;
+	background-color: #F0F1F2;
+	padding: 12px 18px;
+	text-align: center;
+	border-radius: 6px;
+	box-shadow: 0 0 10px #848484;
+}
+
+#in-log {
+	margin: 12px 0;
+}
+
+.dv-imp-oi {
+	position: relative;
+	text-align: left;
+	color: #666;
+}
+.dv-imp-oi > input {
+	padding-left: 34px;
+	/*padding: 6px 24px 6px 34px;*/
+	border-radius: 0;
+	border: none;
+	border-bottom: 2px solid #E4E7EA;
+	background-clip: border-box;
+	outline: none;
+}
+input:focus {
+	box-shadow: none!important;
+}
+.inr-oi {
+	position: absolute;
+	padding: 8px;
+}
+.dv-imp-ch {
+	position: relative;
+	margin-bottom: 12px;
+	text-align: left;
+}
+.dv-imp-ch input[type=checkbox] {
+	position: absolute;
+	visibility: hidden;
+}
+.label-othr {
+	margin: 6px 0;
+	cursor: pointer;
+}
+.dv-imp-ch input[type=checkbox]:checked ~ .label-othr {
+	color: red;
+}
+.dv-wth-bth {
+	border-bottom: 2px solid #E4E7EA;
+	
+}
+.bthdvImp {
+	/*position: relative;*/
+	padding-left: 34px;
+	height: 36px;
+	width: 100%;
+	background-color: #FFF;
+	display: flex;
+	align-items: center;
+}
+.sn-inrlil {
+	cursor: default;
+}
+.dv-inrbth {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin-left: 8px;
+	display: inline-grid;
+	grid-template-columns: 1fr 1fr 1.4fr;
+	/*justify-content: center;*/
+	/*flex-grow: 1;*/
+}
+.dv-inrbth .bth-input {
+	color: inherit;
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #E4E7EA;
+	/*border-left: 1px solid #E4E7EA;*/
+	/*border-right: 1px solid #E4E7EA;*/
+	background-color: transparent;
+	margin-bottom: -2px;
+	outline: none;
+	transition: border 0.2s;
+	text-align: center;
+}
+.dv-inrbth .bth-input:focus {
+	border-bottom-color: #80BDFF;
+}
+/*.dv-inrbth button .in-selinkp {
+	position: absolute;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #FDFDFD;
+	top: 0;
+	box-shadow: 0 0 6px #E4E7EA;
+	z-index: 2;
+}
+.in-selinkp .in-spldf {
+	height: 36px;
+	margin: -1px 0;
+	border: 1px solid #E4E7EA;
+}*/
+
+.sn-notsel {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */     
+}
+
+#log {
+	margin-top: 8px;
+	font-weight: bold;
+	width: 96px;
+
+}
+#log:focus {
+	outline: none;
+	box-shadow: none!important;
+}
+#signup {
+	margin-top: 8px;
+	font-weight: bold;
+	width: 96px;
+
+}
+#signup:focus {
+	outline: none;
+	box-shadow: none!important;
+}
+
+.dv-wrdn {
+	margin: 6px 0;
+	background-color: #A3A3A4;
+	/*border: 1px solid red;*/
+	border-radius: 8px;
+	padding: 4px 6px;
+	color: #EEE;
+	font-family: Segoe UI, Noto Sans;
+	font-size: 14px;
+	text-align: left;
+
+	transition: all 2s;
+}
+
+
+
+@media screen and (max-width: 720px) {
+
+#mnreg {
+	margin: 0;
+	width: 100%;
+	background-color: #F0F1F2;
+	padding: 24px;
+	text-align: center;
+	border-radius: 0;
+	box-shadow: 0 0 10px #848484;
+}
+
+}
