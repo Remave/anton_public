@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 30 2021 г., 18:09
+-- Время создания: Май 08 2021 г., 13:54
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.1.32
 
@@ -106,7 +106,9 @@ INSERT INTO `users` (`id`, `login`, `pass`, `email`, `type`) VALUES
 -- Индексы таблицы `rating`
 --
 ALTER TABLE `rating`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_user_id` (`user_id`),
+  ADD KEY `rev_id` (`rev_id`);
 
 --
 -- Индексы таблицы `reviews`
@@ -147,6 +149,13 @@ ALTER TABLE `users`
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
+
+--
+-- Ограничения внешнего ключа таблицы `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`rev_id`) REFERENCES `reviews` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `reviews`
